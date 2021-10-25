@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Drawer,
@@ -7,7 +7,6 @@ import {
   IconButton,
   Grid,
   Paper,
-  TextField,
 } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -56,8 +55,6 @@ const SideBarRow = ({
   const [rowDetails, setRowDetails] = useState({});
 
   const handleElemTypeOpen = (row, col, type) => {
-    // console.log("data ==>> ", row, col, type);
-    // addElementToRow(row, col, type);
     setRowDetails({
       row,
       col,
@@ -69,8 +66,6 @@ const SideBarRow = ({
   const handleElemTypeClose = () => {
     setElemType(false);
   };
-
-  // console.log("Elem type", elemType);
   return (
     <div>
       <React.Fragment>

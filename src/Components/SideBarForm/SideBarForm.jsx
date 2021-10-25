@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Drawer,
@@ -14,13 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const drawerWidth = 280;
 
-const SideBarForm = ({
-  addElementToRow,
-  handleElemTypeClose,
-  rowId,
-  rowData,
-}) => {
-  const [elemType, setElemType] = useState("");
+const SideBarForm = ({ addElementToRow, handleElemTypeClose, rowData }) => {
   const [content, setContent] = useState("");
 
   const handleChangeContent = (e) => {
@@ -28,11 +22,9 @@ const SideBarForm = ({
   };
 
   const handleAdd = () => {
-    // addElementToRow(rowId, content);
     addElementToRow(rowData.row, rowData.col, rowData.type, content);
     setContent("");
   };
-  // console.log("Elem type", elemType);
   return (
     <div>
       <React.Fragment>
@@ -65,11 +57,42 @@ const SideBarForm = ({
                   id="outlined-basic"
                   label="Content"
                   variant="outlined"
+                  sx={{ mt: 1, ml: 2 }}
+                />
+                <TextField
+                  onChange={handleChangeContent}
+                  id="outlined-basic"
+                  label="Just a place holder"
+                  variant="outlined"
+                  disabled
+                  sx={{ mt: 1, ml: 2 }}
                 />
               </Grid>
-              <Button variant="contained" color="success" onClick={handleAdd}>
+              <Button
+                variant="contained"
+                color="success"
+                onClick={handleAdd}
+                sx={{ mt: 1.5, ml: 2 }}
+              >
                 Submit
               </Button>
+              <div
+                style={{
+                  wordWrap: "break-word",
+                  marginTop: "1.5rem",
+                  marginLeft: "1rem",
+                }}
+              >
+                <p
+                  style={{
+                    fontWeight: "700",
+                  }}
+                >
+                  Use this image link for test:
+                </p>{" "}
+                https://randomuser.me/api/
+                <p style={{ lineHeight: "-1rem" }}>portraits/men/75.jpg</p>
+              </div>
             </Grid>
           </Drawer>
         </Box>

@@ -6,7 +6,6 @@ const CanvasCard = ({ number, addElementToRow, rowId, item }) => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const [colId, setColId] = useState(1);
   const handleChange = (i) => {
-    console.log("Itemmmmmmmmm ==>> ", item);
     setColId(i);
     setSideBarOpen(!sideBarOpen);
   };
@@ -38,7 +37,12 @@ const CanvasCard = ({ number, addElementToRow, rowId, item }) => {
                 marginTop: "2rem",
               }}
             >
-              <img src={item.elements[i].value} width="100" height="100" />
+              <img
+                src={item.elements[i].value}
+                alt=""
+                width="100"
+                height="100"
+              />
             </Paper>
           </div>
         ) : (

@@ -3,8 +3,6 @@ import React from "react";
 import CanvasCard from "../CanvasCard/CanvasCard";
 
 const Canvas = ({ card, addElementToRow }) => {
-  console.log("Card from canvas", card);
-
   const createRow = () => {
     return card?.map((item, index) => (
       <CanvasCard

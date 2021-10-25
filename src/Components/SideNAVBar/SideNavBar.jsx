@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Logo from "../../Assest/logo.png";
 
 import {
@@ -12,7 +12,6 @@ import {
   ListItemText,
 } from "@mui/material/";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
 
 import ListItemIcon from "@mui/material/ListItemIcon";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
@@ -50,24 +49,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -86,18 +67,16 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer() {
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
   return (
     <Box sx={{ display: "flex" }}>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent">
         <DrawerHeader>
           {" "}
           <div>
             {" "}
             <img
               src={Logo}
+              alt=""
               width="40"
               height="40"
               style={{
