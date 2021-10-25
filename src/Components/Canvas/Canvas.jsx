@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Box, Paper, Grid, Button } from "@mui/material/";
 
 import CanvasCard from "../CanvasCard/CanvasCard";
 
@@ -9,10 +8,11 @@ const Canvas = ({ card, addElementToRow }) => {
   const createRow = () => {
     return card?.map((item, index) => (
       <CanvasCard
-        key={index}
-        rowId={item.id}
+        key={item.id}
+        rowId={index}
         number={item.column}
         addElementToRow={addElementToRow}
+        item={item}
       />
     ));
   };

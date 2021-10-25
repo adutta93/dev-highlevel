@@ -23,24 +23,27 @@ function App() {
     const newRow = {
       id: newRowId,
       column,
-      elements: [],
+      elements: new Array(column).fill({
+        id: uuid(),
+        type: "",
+        value: "",
+      }),
     };
+
     setCard([...card, newRow]);
-    console.log("All cards", card);
+    console.log("All cards", [...card, newRow]);
   };
 
   // add a new element to arow
-  const addElementToRow = (rowId, content) => {
-    const newElemId = uuid();
-    const newElem = {
-      id: newElemId,
-      content,
-      rowId,
-    };
-    // setCard()
-    console.log("new elem ==>> ", newElem);
-    console.log("new elem card==>> ", card);
+  const addElementToRow = (row, col, type, value) => {
+    console.log("row, col, type ==>> ", row, col, type);
+    let tempState = [...card];
+    tempState[row].elements[col].type = type;
+    tempState[row].elements[col].value = value;
+    setCard(tempState);
+    console.log("state ==>> ", tempState);
   };
+
   return (
     <div className="App">
       <SideNavBar />
