@@ -88,10 +88,9 @@ const SideBarForm = ({ addElementToRow, handleElemTypeClose, rowData }) => {
                     fontWeight: "700",
                   }}
                 >
-                  Use this image link for test:
+                  Use this image for test:
                 </p>{" "}
-                https://randomuser.me/api/
-                <p style={{ lineHeight: "-1rem" }}>portraits/men/75.jpg</p>
+                https://randomuser.me/api/portraits/men/75.jpg
               </div>
             </Grid>
           </Drawer>
