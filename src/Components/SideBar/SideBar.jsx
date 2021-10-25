@@ -50,10 +50,19 @@ const SideBarRow = ({
   type,
   addElementToRow,
   rowId,
+  colId,
 }) => {
   const [elemType, setElemType] = useState(false);
+  const [rowDetails, setRowDetails] = useState({});
 
-  const handleElemTypeOpen = () => {
+  const handleElemTypeOpen = (row, col, type) => {
+    // console.log("data ==>> ", row, col, type);
+    // addElementToRow(row, col, type);
+    setRowDetails({
+      row,
+      col,
+      type,
+    });
     setElemType(true);
   };
 
@@ -61,7 +70,7 @@ const SideBarRow = ({
     setElemType(false);
   };
 
-  console.log("Elem type", elemType);
+  // console.log("Elem type", elemType);
   return (
     <div>
       <React.Fragment>
@@ -142,7 +151,9 @@ const SideBarRow = ({
                             flexDirection: "column",
                             cursor: "pointer",
                           }}
-                          onClick={handleElemTypeOpen}
+                          onClick={() =>
+                            handleElemTypeOpen(rowId, colId, item.type)
+                          }
                         >
                           {item.icon}
                           <div
@@ -165,6 +176,7 @@ const SideBarRow = ({
               handleElemTypeClose={handleElemTypeClose}
               addElementToRow={addElementToRow}
               rowId={rowId}
+              rowData={rowDetails}
             />
           ) : (
             ""

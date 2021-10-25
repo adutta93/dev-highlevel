@@ -14,7 +14,12 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const drawerWidth = 280;
 
-const SideBarForm = ({ addElementToRow, handleElemTypeClose, rowId }) => {
+const SideBarForm = ({
+  addElementToRow,
+  handleElemTypeClose,
+  rowId,
+  rowData,
+}) => {
   const [elemType, setElemType] = useState("");
   const [content, setContent] = useState("");
 
@@ -23,10 +28,11 @@ const SideBarForm = ({ addElementToRow, handleElemTypeClose, rowId }) => {
   };
 
   const handleAdd = () => {
-    addElementToRow(rowId, content);
+    // addElementToRow(rowId, content);
+    addElementToRow(rowData.row, rowData.col, rowData.type, content);
     setContent("");
   };
-  console.log("Elem type", elemType);
+  // console.log("Elem type", elemType);
   return (
     <div>
       <React.Fragment>

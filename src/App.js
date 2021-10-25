@@ -29,21 +29,20 @@ function App() {
         value: "",
       }),
     };
-
     setCard([...card, newRow]);
-    console.log("All cards", [...card, newRow]);
+    console.log("cards ==>> ", [...card, newRow]);
   };
 
   // add a new element to arow
   const addElementToRow = (row, col, type, value) => {
-    console.log("row, col, type ==>> ", row, col, type);
+    console.log("row, col, type, value ==>> ", row, col, type, value);
     let tempState = [...card];
     tempState[row].elements[col].type = type;
     tempState[row].elements[col].value = value;
     setCard(tempState);
     console.log("state ==>> ", tempState);
   };
-
+  console.log("The Final Card ==>> ", card);
   return (
     <div className="App">
       <SideNavBar />
